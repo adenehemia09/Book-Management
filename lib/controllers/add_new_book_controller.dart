@@ -58,7 +58,6 @@ class AddBookController extends GetxController {
         showErrorSnackbar('Invalid response from server');
       }
     } catch (error) {
-      print('Error: $error');
       showErrorSnackbar('Edit failed: $error');
     } finally {
       isLoading.value = false;

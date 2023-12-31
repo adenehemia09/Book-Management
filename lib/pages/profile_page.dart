@@ -17,7 +17,7 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Profile Page'),
+        title: const Text('Profile Page'),
       ),
       body: Center(
         child: Column(
@@ -26,7 +26,7 @@ class ProfilePage extends StatelessWidget {
             Container(
               width: MediaQuery.of(context).size.width,
               height: 280,
-              margin: EdgeInsets.only(left: 14, right: 14),
+              margin: const EdgeInsets.only(left: 14, right: 14),
               child: Card(
                 elevation: 5,
                 margin: const EdgeInsets.only(left: 10, right: 10, top: 12),
@@ -45,7 +45,7 @@ class ProfilePage extends StatelessWidget {
                             radius: 4,
                             backgroundColor: Colors.green.shade300,
                           ),
-                          SizedBox(width: 4),
+                          const SizedBox(width: 4),
                           Text(
                             'Aktif',
                             style: TextStyle(
@@ -56,7 +56,7 @@ class ProfilePage extends StatelessWidget {
                           ),
                         ],
                       ),
-                      Center(
+                      const Center(
                         child: CircleAvatar(
                           backgroundImage: AssetImage('assets/avatar.png'),
                           // Sesuaikan path dan ekstensi gambar
@@ -65,7 +65,7 @@ class ProfilePage extends StatelessWidget {
                           backgroundColor: Colors.white,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Column(
@@ -73,14 +73,14 @@ class ProfilePage extends StatelessWidget {
                         children: [
                           Text(
                             '${userController.userData['name']}',
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 24,
                                 fontWeight: FontWeight.bold,
                                 overflow: TextOverflow.ellipsis),
                           ),
                           Text(
                             '${userController.userData['email']}',
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 16.0,
                               fontWeight: FontWeight.normal,
                             ),
@@ -94,16 +94,16 @@ class ProfilePage extends StatelessWidget {
               ),
             ),
             Container(
-                margin:
-                    EdgeInsets.only(left: 20, right: 20, top: 30, bottom: 10),
+                margin: const EdgeInsets.only(
+                    left: 20, right: 20, top: 30, bottom: 10),
                 height: 50,
                 width: MediaQuery.of(context).size.width,
                 child: ElevatedButton(
                     onPressed: () {
                       logout();
                     },
-                    child: Text('Logout'))),
-            Align(
+                    child: const Text('Logout'))),
+            const Align(
                 alignment: Alignment.bottomCenter,
                 child: Text('App Version 1.0.0'))
           ],

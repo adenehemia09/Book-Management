@@ -15,7 +15,6 @@ class MainPage extends StatelessWidget {
 
     return Scaffold(
       body: Obx(() {
-        // Gunakan Obx untuk membuat widget yang merespons perubahan pada observable
         return IndexedStack(
           index: navigationController.selectedIndex.value,
           children: [
