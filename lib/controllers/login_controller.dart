@@ -23,7 +23,7 @@ class LoginController extends GetxController {
         pwController.text,
       );
 
-      if (response != null) {
+      if (response['token'] != null) {
         showSuccessSnackbar('Login successfully');
         print(response['token']);
         String token = response["token"];

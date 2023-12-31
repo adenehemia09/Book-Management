@@ -3,48 +3,54 @@ import 'package:get/get.dart';
 import '../controllers/register_controller.dart';
 
 class RegisterPage extends StatelessWidget {
-  const RegisterPage({Key? key});
+  const RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final RegisterController _registerController =
-        Get.put(RegisterController());
+    final RegisterController registerController = Get.put(RegisterController());
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+    return Container(
+      margin: const EdgeInsets.only(left: 26, right: 26),
       child: Column(
         children: [
           TextField(
-            onChanged: _registerController.setName,
+            onChanged: registerController.setName,
             decoration: const InputDecoration(labelText: 'Name'),
           ),
+          const SizedBox(height: 5),
           TextField(
-            onChanged: _registerController.setEmail,
+            onChanged: registerController.setEmail,
             decoration: const InputDecoration(labelText: 'Email'),
           ),
+          const SizedBox(height: 5),
           TextField(
-            onChanged: _registerController.setPassword,
+            onChanged: registerController.setPassword,
             decoration: const InputDecoration(labelText: 'Password'),
             obscureText: true,
           ),
+          const SizedBox(height: 5),
           TextField(
-            onChanged: _registerController.setPasswordConfirmation,
+            onChanged: registerController.setPasswordConfirmation,
             decoration: const InputDecoration(labelText: 'Confirm Password'),
             obscureText: true,
           ),
-          const SizedBox(height: 16),
-          ElevatedButton(
-            onPressed: _registerController.isLoading.value
-                ? null
-                : _registerController.register,
-            child: _registerController.isLoading.value
-                ? const CircularProgressIndicator()
-                : const Text('Register'),
+          const SizedBox(height: 25),
+          Container(
+            height: 50,
+            width: MediaQuery.of(context).size.width,
+            child: ElevatedButton(
+              onPressed: registerController.isLoading.value
+                  ? null
+                  : registerController.register,
+              child: registerController.isLoading.value
+                  ? const CircularProgressIndicator()
+                  : const Text('Register'),
+            ),
           ),
           Obx(() {
-            if (_registerController.registeredUser.value.id != 0) {
+            if (registerController.registeredUser.value.id != 0) {
               return Text(
-                  'Registered User: ${_registerController.registeredUser.value.name}');
+                  'Registered User: ${registerController.registeredUser.value.name}');
             } else {
               return const SizedBox.shrink();
             }

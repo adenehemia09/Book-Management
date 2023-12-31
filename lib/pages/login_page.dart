@@ -7,35 +7,41 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final LoginController _loginController = Get.put(LoginController());
+    final LoginController loginController = Get.put(LoginController());
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+    return Container(
+      margin: const EdgeInsets.only(left: 26, right: 26),
       child: Column(
         children: [
-          const SizedBox(height: 10),
           TextField(
-            controller: _loginController.emailController,
+            controller: loginController.emailController,
             decoration: const InputDecoration(
-              labelText: 'Username',
+              labelText: 'Email',
             ),
           ),
-          const SizedBox(height: 15),
+          const SizedBox(height: 5),
           TextField(
-            controller: _loginController.pwController,
+            controller: loginController.pwController,
             obscureText: true,
             decoration: const InputDecoration(
               labelText: 'Password',
             ),
           ),
-          const SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () => _loginController.login(),
-            child: const Text('Login'),
+          const SizedBox(height: 25),
+          SizedBox(
+            height: 50,
+            width: MediaQuery.of(context).size.width,
+            child: ElevatedButton(
+              onPressed: () => loginController.login(),
+              child: const Text(
+                'Login',
+                style: TextStyle(fontSize: 16),
+              ),
+            ),
           ),
           const SizedBox(height: 16.0),
           Obx(
-            () => _loginController.isLoading.value
+            () => loginController.isLoading.value
                 ? const CircularProgressIndicator()
                 : const SizedBox.shrink(),
           ),
