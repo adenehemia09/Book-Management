@@ -1,19 +1,17 @@
-import 'package:crud_book/controllers/bookController.dart';
-import 'package:crud_book/controllers/usetoken.dart';
-import 'package:crud_book/pages/mainAuth.dart';
-import 'package:crud_book/pages/mainPage.dart';
-import 'package:crud_book/services/deleteBookService.dart';
-import 'package:crud_book/services/logoutServices.dart';
+import 'package:crud_book/controllers/book_controller.dart';
+import 'package:crud_book/controllers/user_token.dart';
+import 'package:crud_book/pages/main_auth.dart';
+import 'package:crud_book/pages/main_page.dart';
+import 'package:crud_book/services/delete_book_service.dart';
+import 'package:crud_book/services/logout_services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../services/authServices.dart';
-
+import '../services/auth_services.dart';
 
 class LogoutController extends GetxController {
   final ApiLogoutService _logoutService = ApiLogoutService();
   final TokenManager tokenManager = Get.put(TokenManager());
-  
 
   var isLoading = false.obs;
 
@@ -34,7 +32,6 @@ class LogoutController extends GetxController {
       showErrorSnackbar('Edit failed: $error');
     } finally {
       isLoading.value = false;
-
     }
   }
 

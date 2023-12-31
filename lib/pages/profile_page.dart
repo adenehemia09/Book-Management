@@ -1,7 +1,7 @@
-import 'package:crud_book/controllers/logoutController.dart';
+import 'package:crud_book/controllers/logout_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../controllers/userController.dart';
+import '../controllers/user_controller.dart';
 
 class ProfilePage extends StatelessWidget {
   final UserController userController = Get.put(UserController());

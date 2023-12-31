@@ -1,19 +1,17 @@
-import 'package:crud_book/pages/mainPage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../controllers/registerController.dart';
-import '../widgets/buildTextFormField.dart';
+import '../controllers/register_controller.dart';
 
 class RegisterPage extends StatelessWidget {
-   const RegisterPage({Key? key});
+  const RegisterPage({Key? key});
 
   @override
   Widget build(BuildContext context) {
-    final RegisterController _registerController = Get.put(RegisterController());
+    final RegisterController _registerController =
+        Get.put(RegisterController());
 
     return Padding(
-      padding:  EdgeInsets.symmetric(horizontal: 20),
+      padding: EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         children: [
           TextField(
@@ -36,14 +34,17 @@ class RegisterPage extends StatelessWidget {
           ),
           SizedBox(height: 16),
           ElevatedButton(
-            onPressed: _registerController.isLoading.value ? null : _registerController.register,
+            onPressed: _registerController.isLoading.value
+                ? null
+                : _registerController.register,
             child: _registerController.isLoading.value
                 ? CircularProgressIndicator()
                 : Text('Register'),
           ),
           Obx(() {
             if (_registerController.registeredUser.value.id != 0) {
-              return Text('Registered User: ${_registerController.registeredUser.value.name}');
+              return Text(
+                  'Registered User: ${_registerController.registeredUser.value.name}');
             } else {
               return SizedBox.shrink();
             }

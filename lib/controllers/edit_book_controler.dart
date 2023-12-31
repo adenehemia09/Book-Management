@@ -1,14 +1,9 @@
-import 'package:crud_book/controllers/bookController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../pages/mainPage.dart';
-import '../services/addBookService.dart';
-import '../services/deleteBookService.dart';
-import '../services/editBookService.dart';
+import '../services/edit_book_service.dart';
 
-class AddBookController extends GetxController {
-  final ApiAddService _apiAddService = ApiAddService();
-  final BookController _fechBookService = BookController();
+class EditBookController extends GetxController {
+  final ApiEditService _apiService = ApiEditService();
 
   final TextEditingController titleController = TextEditingController();
   final TextEditingController authorController = TextEditingController();
@@ -22,24 +17,11 @@ class AddBookController extends GetxController {
 
   var isLoading = false.obs;
 
-  void dispose() {
-    // Clean up the controller when the widget is removed from the widget tree.
-    titleController.dispose();
-    authorController.dispose();
-    subtitleController.dispose();
-    publisherController.dispose();
-    publishedController.dispose();
-    pagesController.dispose();
-    descriptionController.dispose();
-    websiteController.dispose();
-
-    super.dispose();
-  }
-
-  Future<void> addDataBook() async {
+  Future<void> editkan(int id) async {
     try {
       isLoading.value = true;
-      final response = await _apiAddService.addBook(
+      final response = await _apiService.editBook(
+        id,
         isbnController.text,
         titleController.text,
         authorController.text,
@@ -47,14 +29,10 @@ class AddBookController extends GetxController {
         publisherController.text,
         pagesController.text,
         descriptionController.text,
-        subtitleController.text,
-        websiteController.text,
       );
 
       if (response != null) {
-        showSuccessSnackbar('Add Data successfully');
-        await _fechBookService.fetchBooks();
-        Get.offAll(MainPage());
+        showSuccessSnackbar('Edit successfully');
       } else {
         showErrorSnackbar('Invalid response from server');
       }

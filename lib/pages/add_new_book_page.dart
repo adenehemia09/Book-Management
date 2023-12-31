@@ -1,78 +1,69 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../controllers/add_new_book_controller.dart';
+import '../controllers/login_controller.dart';
+import '../widgets/add_book_form.dart';
+import '../widgets/description_form.dart';
+import '../widgets/picked_date_form.dart';
+import '../widgets/picked_number_form.dart';
 
-import '../controllers/editBookControler.dart';
-import '../controllers/loginController.dart';
-import '../models/bookModel.dart';
-import '../widgets/addBookForm.dart';
-import '../widgets/descriptionForm.dart';
-import '../widgets/pickedDateForm.dart';
-import '../widgets/pickedNumberForm.dart';
+class ADDNewBook extends StatelessWidget {
+  final AddBookController addBookController = Get.put(AddBookController());
 
-class EditBook extends StatelessWidget {
-  final int id;
-
-  EditBook({super.key, required this.id});
-  final EditBookController editBookController = Get.put(EditBookController());
-  final LoginController loginController = Get.find();
+  ADDNewBook({super.key});
 
   @override
   Widget build(BuildContext context) {
-
+    // final String token = loginController.token;
 
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Edit BOOK',
+          'ADD NEW BOOK',
           style: TextStyle(fontSize: 18),
         ),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             AddBookForm(
               labelText: 'Title Book',
-              textEditingController: editBookController.titleController
-
+              textEditingController: addBookController.titleController,
             ),
             AddBookForm(
               labelText: 'Author',
-              textEditingController: editBookController.authorController
-
+              textEditingController: addBookController.authorController,
             ),
             AddBookForm(
               labelText: 'Subtitle',
-              textEditingController: editBookController.subtitleController
-
+              textEditingController: addBookController.subtitleController,
             ),
             AddBookForm(
               labelText: 'Publisher',
-              textEditingController: editBookController.publisherController
-
+              textEditingController: addBookController.publisherController,
             ),
             PickedDateForm(
-              textEditingController: editBookController.publishedController,
-
+              textEditingController: addBookController.publishedController,
               labelText: 'Published Date',
             ),
             PickedNumberForm(
-              textEditingController: editBookController.pagesController,
-
+              textEditingController: addBookController.pagesController,
               labelText: 'Total Pages',
             ),
             PickedNumberForm(
-              textEditingController: editBookController.isbnController,
+              textEditingController: addBookController.isbnController,
               labelText: 'ISBN',
             ),
             DescriptionForm(
-              textEditingController: editBookController.descriptionController,
+              textEditingController: addBookController.descriptionController,
               labelText: 'Description',
             ),
-
             AddBookForm(
               labelText: 'Website',
-              textEditingController: editBookController.websiteController,
+              textEditingController: addBookController.websiteController,
             ),
             Container(
               margin: const EdgeInsets.only(left: 24, right: 24, top: 17),
@@ -91,13 +82,12 @@ class EditBook extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  editBookController.editkan(id);
-                  //editBookController.saveChanges(id);
+                  addBookController.addDataBook();
                   // print(token);
                   //  addBookController.addBook(token);
                 },
                 child: const Text(
-                  'Edit Book',
+                  'Add Book',
                   style: TextStyle(
                     fontSize: 20,
                     color: Colors.white,
@@ -106,7 +96,9 @@ class EditBook extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height:30,),
+            SizedBox(
+              height: 30,
+            ),
           ],
         ),
       ),

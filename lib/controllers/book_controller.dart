@@ -1,8 +1,6 @@
 import 'package:get/get.dart';
-
-
-import '../models/bookModel.dart';
-import '../services/bookServices.dart';
+import '../models/book_model.dart';
+import '../services/book_services.dart';
 
 class BookController extends GetxController {
   var isLoading = true.obs;

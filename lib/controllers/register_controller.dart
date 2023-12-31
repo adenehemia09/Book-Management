@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../models/userModel.dart';
-import '../services/authServices.dart';
-
+import '../models/user_model.dart';
+import '../services/auth_services.dart';
 
 class RegisterController extends GetxController {
   final AuthService _authService = AuthService();
@@ -17,12 +16,14 @@ class RegisterController extends GetxController {
   void setName(String value) => name.value = value;
   void setEmail(String value) => email.value = value;
   void setPassword(String value) => password.value = value;
-  void setPasswordConfirmation(String value) => passwordConfirmation.value = value;
+  void setPasswordConfirmation(String value) =>
+      passwordConfirmation.value = value;
 
   Future<void> register() async {
     try {
       isLoading.value = true;
-      final response = await _authService.register(name.value, email.value, password.value, passwordConfirmation.value);
+      final response = await _authService.register(
+          name.value, email.value, password.value, passwordConfirmation.value);
 
       if (response != null) {
         final user = User.fromJson(response['user']);
@@ -34,7 +35,6 @@ class RegisterController extends GetxController {
     } catch (error) {
       print('Error: $error');
       showErrorSnackbar('Registration failed: $error');
-
     } finally {
       isLoading.value = false;
     }

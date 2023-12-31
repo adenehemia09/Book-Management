@@ -1,18 +1,18 @@
-import 'package:crud_book/controllers/deleteBookController.dart';
-import 'package:crud_book/pages/detitleBookPage.dart';
+import 'package:crud_book/controllers/delete_book_controller.dart';
+import 'package:crud_book/pages/detitle_book_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
-import '../models/bookModel.dart';
+import '../models/book_model.dart';
 
 class BookCard extends StatelessWidget {
   final Book book;
   final DeleteBookController _deleteBookService = DeleteBookController();
 
-   BookCard({
-    Key? key,
+  BookCard({
+    super.key,
     required this.book,
-  }) : super(key: key);
+  });
 
   // Add a method to delete the book
   void deleteBook(id) {
@@ -24,7 +24,7 @@ class BookCard extends StatelessWidget {
     return SizedBox(
       width: MediaQuery.of(context).size.width,
       child: Slidable(
-        endActionPane: ActionPane(motion: StretchMotion(), children: [
+        endActionPane: ActionPane(motion: const StretchMotion(), children: [
           SlidableAction(
             backgroundColor: Colors.red,
             icon: Icons.delete,
@@ -35,10 +35,9 @@ class BookCard extends StatelessWidget {
             },
           ),
         ]),
-        child: Container(
+        child: SizedBox(
           width: MediaQuery.of(context).size.width,
           child: Card(
-
             elevation: 5,
             margin: const EdgeInsets.only(left: 20, right: 20, top: 12),
             shape: RoundedRectangleBorder(
@@ -73,5 +72,3 @@ class BookCard extends StatelessWidget {
     );
   }
 }
-
-

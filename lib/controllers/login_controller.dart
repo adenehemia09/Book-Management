@@ -1,10 +1,9 @@
-import 'package:crud_book/controllers/userController.dart';
-import 'package:crud_book/controllers/usetoken.dart';
-import 'package:crud_book/pages/mainPage.dart';
-import 'package:crud_book/services/authServices.dart';
+import 'package:crud_book/controllers/user_controller.dart';
+import 'package:crud_book/controllers/user_token.dart';
+import 'package:crud_book/pages/main_page.dart';
+import 'package:crud_book/services/auth_services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 
 class LoginController extends GetxController {
   final AuthService _apiloginService = AuthService();
@@ -20,7 +19,6 @@ class LoginController extends GetxController {
     try {
       isLoading.value = true;
       final response = await _apiloginService.login(
-
         emailController.text,
         pwController.text,
       );
@@ -31,7 +29,6 @@ class LoginController extends GetxController {
         String token = response["token"];
         tokenManager.setToken(token);
         Get.off(MainPage());
-
       } else {
         showErrorSnackbar('Invalid response from server');
       }
@@ -41,7 +38,6 @@ class LoginController extends GetxController {
     } finally {
       userController.getUserData();
       isLoading.value = false;
-
     }
   }
 
@@ -63,5 +59,3 @@ class LoginController extends GetxController {
     );
   }
 }
-
-

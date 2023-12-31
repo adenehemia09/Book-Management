@@ -4,12 +4,15 @@ import 'package:intl/intl.dart';
 class PickedDateForm extends StatelessWidget {
   final TextEditingController textEditingController;
   final String labelText;
-  const PickedDateForm({super.key, required this.textEditingController, required this.labelText});
+  const PickedDateForm(
+      {super.key,
+      required this.textEditingController,
+      required this.labelText});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: 20, right: 20, top: 15),
+      margin: const EdgeInsets.only(left: 20, right: 20, top: 15),
       padding: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
@@ -31,7 +34,7 @@ class PickedDateForm extends StatelessWidget {
           if (pickedDate != null && pickedDate != DateTime.now()) {
             // Gunakan DateFormat untuk mengonversi dan memformat tanggal
             String formattedDate =
-            DateFormat("yyyy-MM-dd HH:mm:ss").format(pickedDate);
+                DateFormat("yyyy-MM-dd HH:mm:ss").format(pickedDate);
             textEditingController.text = formattedDate;
           }
         },

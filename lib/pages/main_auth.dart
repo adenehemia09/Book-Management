@@ -1,8 +1,8 @@
-import 'package:crud_book/pages/loginPage.dart';
-import 'package:crud_book/pages/registerPage.dart';
+import 'package:crud_book/pages/login_page.dart';
+import 'package:crud_book/pages/register_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../controllers/navigationAuthController.dart';
+import '../controllers/navigation_auth_controller.dart';
 
 class MainAuth extends StatelessWidget {
   MainAuth({super.key});

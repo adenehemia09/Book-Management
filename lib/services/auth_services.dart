@@ -1,8 +1,4 @@
-
 import 'package:dio/dio.dart';
-import 'package:get/get.dart';
-import '../controllers/usetoken.dart';
-
 
 class AuthService {
   final Dio _dio = Dio();
@@ -15,7 +11,8 @@ class AuthService {
     return response.data;
   }
 
-  Future<Map<String, dynamic>> register(String name, String email, String password, String passwordConfirmation) async {
+  Future<Map<String, dynamic>> register(String name, String email,
+      String password, String passwordConfirmation) async {
     try {
       final response = await _dio.post(
         'https://book-crud-service-6dmqxfovfq-et.a.run.app/api/register',
@@ -31,9 +28,4 @@ class AuthService {
       throw Exception('Failed to register user');
     }
   }
-
- 
-
 }
-
-

@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import '../services/userService.dart';
+import '../services/user_service.dart';
 
 class UserController extends GetxController {
   final ApiUserService _apiService = ApiUserService();

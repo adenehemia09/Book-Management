@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../controllers/bookController.dart';
+import '../controllers/book_controller.dart';
 import '../widgets/book_card.dart';
 
 class HomePage extends StatefulWidget {
-
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -35,14 +34,16 @@ class _HomePageState extends State<HomePage> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: bookController.books.map((book) {
-                    return BookCard(book: book,
-                   );
+                    return BookCard(
+                      book: book,
+                    );
                   }).toList(),
                 ),
-                SizedBox(height: 28,)
+                SizedBox(
+                  height: 28,
+                )
               ],
             ),
-
           );
         }
       }),

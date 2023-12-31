@@ -1,10 +1,10 @@
+import 'package:crud_book/controllers/book_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../services/editBookService.dart';
+import '../pages/main_page.dart';
+import '../services/add_book_service.dart';
 
-class EditBookController extends GetxController {
-  final ApiEditService _apiService = ApiEditService();
-
+class AddBookController extends GetxController {
   final TextEditingController titleController = TextEditingController();
   final TextEditingController authorController = TextEditingController();
   final TextEditingController subtitleController = TextEditingController();
@@ -15,13 +15,30 @@ class EditBookController extends GetxController {
   final TextEditingController descriptionController = TextEditingController();
   final TextEditingController websiteController = TextEditingController();
 
+  final ApiAddService _apiAddService = ApiAddService();
+  final BookController _fechBookService = BookController();
+
   var isLoading = false.obs;
 
-  Future<void> editkan(int id) async {
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is removed from the widget tree.
+    titleController.dispose();
+    authorController.dispose();
+    subtitleController.dispose();
+    publisherController.dispose();
+    publishedController.dispose();
+    pagesController.dispose();
+    descriptionController.dispose();
+    websiteController.dispose();
+
+    super.dispose();
+  }
+
+  Future<void> addDataBook() async {
     try {
       isLoading.value = true;
-      final response = await _apiService.editBook(
-        id,
+      final response = await _apiAddService.addBook(
         isbnController.text,
         titleController.text,
         authorController.text,
@@ -29,10 +46,14 @@ class EditBookController extends GetxController {
         publisherController.text,
         pagesController.text,
         descriptionController.text,
+        subtitleController.text,
+        websiteController.text,
       );
 
       if (response != null) {
-        showSuccessSnackbar('Edit successfully');
+        showSuccessSnackbar('Add Data successfully');
+        await _fechBookService.fetchBooks();
+        Get.offAll(MainPage());
       } else {
         showErrorSnackbar('Invalid response from server');
       }

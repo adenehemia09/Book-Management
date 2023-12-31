@@ -1,10 +1,8 @@
-import 'package:crud_book/controllers/bookController.dart';
-import 'package:crud_book/pages/mainAuth.dart';
-import 'package:crud_book/pages/mainPage.dart';
-import 'package:crud_book/services/deleteBookService.dart';
+import 'package:crud_book/controllers/book_controller.dart';
+import 'package:crud_book/pages/main_page.dart';
+import 'package:crud_book/services/delete_book_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 
 class DeleteBookController extends GetxController {
   final ApiDeleteService _apiDeleteService = ApiDeleteService();
@@ -29,7 +27,6 @@ class DeleteBookController extends GetxController {
       showErrorSnackbar('Edit failed: $error');
     } finally {
       isLoading.value = false;
-
     }
   }
 

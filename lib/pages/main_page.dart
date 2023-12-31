@@ -1,9 +1,9 @@
-import 'package:crud_book/pages/addNewBookPage.dart';
-import 'package:crud_book/pages/homePage.dart';
-import 'package:crud_book/pages/profilePage.dart';
+import 'package:crud_book/pages/add_new_book_page.dart';
+import 'package:crud_book/pages/home_page.dart';
+import 'package:crud_book/pages/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:crud_book/controllers/navigationController.dart';
+import 'package:crud_book/controllers/navigation_controller.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
@@ -18,7 +18,7 @@ class MainPage extends StatelessWidget {
         // Gunakan Obx untuk membuat widget yang merespons perubahan pada observable
         return IndexedStack(
           index: navigationController.selectedIndex.value,
-          children:  [
+          children: [
             // Halaman 1 (Home)
             HomePage(),
             // Halaman 2 (Profile)
@@ -54,7 +54,6 @@ class MainPage extends StatelessWidget {
                   ),
                 ),
               ),
-
               Padding(
                 padding: const EdgeInsets.only(right: 24),
                 child: GestureDetector(
@@ -70,7 +69,6 @@ class MainPage extends StatelessWidget {
                   ),
                 ),
               ),
-
             ],
           ),
         ),

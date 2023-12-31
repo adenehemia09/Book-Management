@@ -1,9 +1,6 @@
-
-
-
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
-import '../controllers/usetoken.dart';
+import '../controllers/user_token.dart';
 
 class ApiLogoutService {
   final Dio dio = Dio();

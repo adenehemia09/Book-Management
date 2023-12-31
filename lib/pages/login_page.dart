@@ -1,9 +1,9 @@
-import 'package:crud_book/pages/mainPage.dart';
+import 'package:crud_book/pages/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../controllers/loginController.dart';
+import '../controllers/login_controller.dart';
 
-import '../widgets/buildTextFormField.dart';
+import '../widgets/build_text_form_field.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
