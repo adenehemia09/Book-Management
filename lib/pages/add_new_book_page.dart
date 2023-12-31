@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/add_new_book_controller.dart';
-import '../controllers/login_controller.dart';
 import '../widgets/add_book_form.dart';
 import '../widgets/description_form.dart';
 import '../widgets/picked_date_form.dart';
@@ -26,7 +25,7 @@ class ADDNewBook extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             AddBookForm(
@@ -96,7 +95,7 @@ class ADDNewBook extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
           ],

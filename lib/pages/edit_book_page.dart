@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../controllers/edit_book_controler.dart';
 import '../controllers/login_controller.dart';
-import '../models/book_model.dart';
 import '../widgets/add_book_form.dart';
 import '../widgets/description_form.dart';
 import '../widgets/picked_date_form.dart';
@@ -28,21 +26,25 @@ class EditBook extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             AddBookForm(
-                labelText: 'Title Book',
-                textEditingController: editBookController.titleController),
+              labelText: 'Title Book',
+              textEditingController: editBookController.titleController,
+            ),
             AddBookForm(
-                labelText: 'Author',
-                textEditingController: editBookController.authorController),
+              labelText: 'Author',
+              textEditingController: editBookController.authorController,
+            ),
             AddBookForm(
-                labelText: 'Subtitle',
-                textEditingController: editBookController.subtitleController),
+              labelText: 'Subtitle',
+              textEditingController: editBookController.subtitleController,
+            ),
             AddBookForm(
-                labelText: 'Publisher',
-                textEditingController: editBookController.publisherController),
+              labelText: 'Publisher',
+              textEditingController: editBookController.publisherController,
+            ),
             PickedDateForm(
               textEditingController: editBookController.publishedController,
               labelText: 'Published Date',
@@ -81,9 +83,6 @@ class EditBook extends StatelessWidget {
                 ),
                 onPressed: () {
                   editBookController.editkan(id);
-                  //editBookController.saveChanges(id);
-                  // print(token);
-                  //  addBookController.addBook(token);
                 },
                 child: const Text(
                   'Edit Book',
@@ -95,7 +94,7 @@ class EditBook extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
           ],

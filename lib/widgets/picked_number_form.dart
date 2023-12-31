@@ -25,10 +25,8 @@ class PickedNumberForm extends StatelessWidget {
           border: InputBorder.none,
         ),
         keyboardType: TextInputType.number,
-        // Set keyboard hanya menampilkan angka
         inputFormatters: <TextInputFormatter>[
           FilteringTextInputFormatter.digitsOnly,
-          // Hanya menerima digit
         ],
       ),
     );

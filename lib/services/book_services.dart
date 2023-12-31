@@ -9,9 +9,6 @@ class BookApiService {
   final TokenManager _tokenManager = Get.find();
 
   Future<List<Book>> getBooks() async {
-    print('Saya di Book Service');
-    print("Ini tokennya ${_tokenManager.token.value}");
-
     try {
       final response = await _dio.get(
         'https://book-crud-service-6dmqxfovfq-et.a.run.app/api/books',
@@ -27,12 +24,9 @@ class BookApiService {
         List<dynamic> data = response.data['data'];
         return data.map((json) => Book.fromJson(json)).toList();
       } else {
-        print('Error fetching books - Status Code: ${response.statusCode}');
-        print('Error Response: ${response.data}');
         throw Exception('Failed to load books');
       }
     } catch (e) {
-      print('Error fetching books: $e');
       return [];
     }
   }

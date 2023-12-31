@@ -14,7 +14,6 @@ class BookCard extends StatelessWidget {
     required this.book,
   });
 
-  // Add a method to delete the book
   void deleteBook(id) {
     _deleteBookService.deleteBook(id);
   }
@@ -30,7 +29,6 @@ class BookCard extends StatelessWidget {
             icon: Icons.delete,
             label: 'Delete',
             onPressed: (context) {
-              // Call the deleteBook method when the delete action is pressed
               deleteBook(book.id);
             },
           ),
