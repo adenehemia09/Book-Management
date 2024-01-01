@@ -14,6 +14,14 @@ This project serves as the starting point for a Flutter application.
 
 </div>
 
+### UI Home Page & Profile Page
+<div style="display: flex; justify-content: space-between;">
+    <img src="https://drive.google.com/uc?export=view&id=14YzgONgkRa6348bJy-CSF389lxkICwGy" width="200">
+    <img src="https://drive.google.com/uc?export=view&id=1V1OtgESB42Chc8zktnfL9oR75ijqsEfn" alt="Alt Text 2" width="200">
+
+</div>
+
+
 
 ### Notes
 
