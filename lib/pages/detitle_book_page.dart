@@ -2,6 +2,7 @@ import 'package:crud_book/models/book_model.dart';
 import 'package:crud_book/pages/edit_book_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
 class DetitleBookPage extends StatelessWidget {
   final Book book;
@@ -9,97 +10,94 @@ class DetitleBookPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String published =
+        DateFormat('dd-MM-yyyy').format(DateTime.parse(book.published));
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('Book Detitle'),
+        title: const Text('Book Detitle'),
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Center(
-                child: Image.asset(
-              'assets/stackBooksEducation.png',
-              height: 200,
-            )
-                // Image.network(
-                //   'https://via.placeholder.com/150', // Ganti dengan URL gambar buku
-                //   height: 200,
-                // ),
-                ),
+              child: Image.asset(
+                'assets/stackBooksEducation.png',
+                height: 200,
+              ),
+            ),
             Container(
-              padding: EdgeInsets.only(left: 10, right: 10),
+              margin: const EdgeInsets.only(left: 30, right: 30),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   Text(
                     book.title,
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                        fontSize: 22, fontWeight: FontWeight.bold),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Text(
                     'ISBN: ${book.isbn}',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 16,
                     ),
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Text(
                     'Author: ${book.author}',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 16,
                     ),
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Text(
                     'Publisher: ${book.publisher}',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 16,
                     ),
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Text(
-                    'Published: ${book.published}',
-                    style: TextStyle(
+                    'Published: $published',
+                    style: const TextStyle(
                       fontSize: 16,
                     ),
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Text(
                     'Total Pages: ${book.pages}',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 16,
                     ),
                   ),
-                  SizedBox(height: 16),
-                  Text(
+                  const SizedBox(height: 16),
+                  const Text(
                     'Description:',
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Text(
                     book.description,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 16,
                     ),
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                 ],
               ),
             ),
             Center(
               child: ElevatedButton(
-                onPressed: () {
-                  // Navigasi ke website buku
-                  // Buka link di browser
-                },
-                child: Text('Kunjungi Website Buku'),
+                onPressed: () {},
+                child: const Text('Kunjungi Website Buku'),
               ),
             ),
           ],
@@ -109,15 +107,15 @@ class DetitleBookPage extends StatelessWidget {
         onPressed: () => Get.to(EditBook(
           id: book.id,
         )),
-        child: Column(
+        child: const Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(Icons.edit), // Menggunakan ikon edit
-            const SizedBox(height: 2), // Jarak antara ikon dan teks
-            const Text(
+            Icon(Icons.edit),
+            SizedBox(height: 2),
+            Text(
               'Edit',
               style: TextStyle(fontSize: 12),
-            ), // Teks keterangan
+            ),
           ],
         ),
       ),

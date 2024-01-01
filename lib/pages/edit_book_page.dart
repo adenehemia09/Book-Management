@@ -61,10 +61,6 @@ class EditBook extends StatelessWidget {
               textEditingController: editBookController.descriptionController,
               labelText: 'Description',
             ),
-            AddBookForm(
-              labelText: 'Website',
-              textEditingController: editBookController.websiteController,
-            ),
             Container(
               margin: const EdgeInsets.only(left: 24, right: 24, top: 17),
               width: MediaQuery.of(context).size.width - 100,

@@ -33,18 +33,17 @@ class LoginPage extends StatelessWidget {
             width: MediaQuery.of(context).size.width,
             child: ElevatedButton(
               onPressed: () => loginController.login(),
-              child: const Text(
-                'Login',
-                style: TextStyle(fontSize: 16),
+              child: Obx(
+                () => loginController.isLoading.value
+                    ? const CircularProgressIndicator()
+                    : const Text(
+                        'Login',
+                        style: TextStyle(fontSize: 16),
+                      ),
               ),
             ),
           ),
           const SizedBox(height: 16.0),
-          Obx(
-            () => loginController.isLoading.value
-                ? const CircularProgressIndicator()
-                : const SizedBox.shrink(),
-          ),
         ],
       ),
     );

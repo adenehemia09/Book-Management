@@ -1,9 +1,13 @@
+import 'package:crud_book/controllers/book_controller.dart';
+import 'package:crud_book/pages/detitle_book_page.dart';
+import 'package:crud_book/pages/edit_book_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../services/edit_book_service.dart';
 
 class EditBookController extends GetxController {
   final ApiEditService _apiService = ApiEditService();
+  final BookController _fechBookService = BookController();
 
   final TextEditingController titleController = TextEditingController();
   final TextEditingController authorController = TextEditingController();
@@ -13,7 +17,6 @@ class EditBookController extends GetxController {
   final TextEditingController pagesController = TextEditingController();
   final TextEditingController isbnController = TextEditingController();
   final TextEditingController descriptionController = TextEditingController();
-  final TextEditingController websiteController = TextEditingController();
 
   var isLoading = false.obs;
 
@@ -33,6 +36,7 @@ class EditBookController extends GetxController {
 
       if (response != null) {
         showSuccessSnackbar('Edit successfully');
+        await _fechBookService.fetchBooks();
       } else {
         showErrorSnackbar('Invalid response from server');
       }

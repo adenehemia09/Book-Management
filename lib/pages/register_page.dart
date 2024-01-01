@@ -47,14 +47,16 @@ class RegisterPage extends StatelessWidget {
                   : const Text('Register'),
             ),
           ),
-          Obx(() {
-            if (registerController.registeredUser.value.id != 0) {
-              return Text(
-                  'Registered User: ${registerController.registeredUser.value.name}');
-            } else {
-              return const SizedBox.shrink();
-            }
-          }),
+          Obx(
+            () {
+              if (registerController.registeredUser.value.id != 0) {
+                return Text(
+                    'Registered User: ${registerController.registeredUser.value.name}');
+              } else {
+                return const SizedBox.shrink();
+              }
+            },
+          ),
         ],
       ),
     );
