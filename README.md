@@ -21,6 +21,19 @@ This project serves as the starting point for a Flutter application.
 
 </div>
 
+### Detile Book Page & Edit Book Page
+
+<div style="display: flex; justify-content: space-between;">
+    <img src="https://drive.google.com/uc?export=view&id=1oevHWRGRtGgNjRAfISphXq29EASwX1bk" width="200">
+    <img src="https://drive.google.com/uc?export=view&id=1fK1atZ20yvQdukIUdc4utdBwCBv8FuGJ" alt="Alt Text 2" width="200">
+</div>
+
+### Add Book Page & Delete Book Page
+<div style="display: flex; justify-content: space-between;">
+    <img src="https://drive.google.com/uc?export=view&id=1ULehi6Mbrjzn4ElUCvbxQ-n8yN_lrDrq" width="200">
+    <img src="https://drive.google.com/uc?export=view&id=19jiZlzHyIdy-xlJuJJCw0cFIyeVbCCie" alt="Alt Text 2" width="200">
+</div>
+
 
 
 ### Notes
